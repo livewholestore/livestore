@@ -1,0 +1,6 @@
+﻿{
+  "DataConnectionString": "Data Source=45.35.181.181;Initial Catalog=livewholestore;Integrated Security=False;Persist Security Info=False;User ID=dev;Password=uEWSDtXC5aGQFaU",
+  //"DataConnectionString": "Data Source=.;Initial Catalog=nopC;Integrated Security=False;Persist Security Info=False;User ID=test;Password=1234",
+  "DataProvider": "sqlserver",
+  "RawDataSettings": {}
+}
