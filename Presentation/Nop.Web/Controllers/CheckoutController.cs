@@ -1643,7 +1643,7 @@ namespace Nop.Web.Controllers
             catch (Exception exc)
             {
                 _logger.Warning(exc.Message, exc, _workContext.CurrentCustomer);
-                return Json(new { error = 1, message = exc.Message });
+                return Json(new { error = 1, message = exc.Message  });
             }
         }
 
@@ -1703,7 +1703,7 @@ namespace Nop.Web.Controllers
                     if (paymentMethod == null)
                         //payment method could be null if order total is 0
                         //success
-                        return Json(new { success = 1 });
+                        return Json(new { success = 2 });
                     //if (paymentMethod.PaymentMethodType == PaymentMethodType.Redirection)
                     if (processPaymentRequest.PaymentMethodSystemName.ToLower().Contains("manual"))
                     {
@@ -1717,7 +1717,7 @@ namespace Nop.Web.Controllers
                         });
                     }
                     //success
-                    return Json(new { success = 1 });
+                    return Json(new { success = processPaymentRequest.PaymentMethodSystemName.ToLower() });
                 }
 
                 //error

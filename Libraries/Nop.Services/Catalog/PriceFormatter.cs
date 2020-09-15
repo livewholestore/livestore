@@ -88,14 +88,14 @@ namespace Nop.Services.Catalog
                     //not possible because "DisplayLocale" should be always specified
                     //but anyway let's just handle this behavior
                     result = $"{amount:N} ({targetCurrency.CurrencyCode})";
-                    return result;
+                    return result.Replace("د.ك.", "KD ");
                 }
             }
 
             //display currency code?
             if (showCurrency && _currencySettings.DisplayCurrencyLabel)
                 result = $"{result} ({targetCurrency.CurrencyCode})";
-            return result;
+            return result.Replace("د.ك.", "KD ");
         }
 
         #endregion
@@ -214,7 +214,7 @@ namespace Nop.Services.Catalog
 
             var currencyString = GetCurrencyString(price, showCurrency, targetCurrency);
             if (!showTax) 
-                return currencyString;
+                return currencyString.Replace("د.ك.", "KD ");
 
             //show tax suffix
             string formatStr;
@@ -231,7 +231,7 @@ namespace Nop.Services.Catalog
                     formatStr = "{0} excl tax";
             }
 
-            return string.Format(formatStr, currencyString);
+            return string.Format(formatStr, currencyString).Replace("د.ك.", "KD ");
         }
 
         /// <summary>

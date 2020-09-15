@@ -15,8 +15,8 @@
         public const string MERCHANT_CODE = "842217";
 
         // This URL are defined by you to get the response from Payment Gateway
-        public const string RESPONSE_URL = "http://localhost:15536/checkout/OpcCompleteRedirectionPayment?paymentStatus=true";
-        public const string FAILURE_URL = "http://localhost:15536/checkout/OpcCompleteRedirectionPayment?paymentStatus=false";
+        public const string RESPONSE_URL = "https://livewholestore.com/checkout/OpcCompleteRedirectionPayment?paymentStatus=true";
+        public const string FAILURE_URL = "https://livewholestore.com/checkout/OpcCompleteRedirectionPayment?paymentStatus=false";
     }
 
     /// <summary>

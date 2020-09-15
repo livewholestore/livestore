@@ -16,7 +16,7 @@ var Checkout = {
 
     ajaxFailure: function () {
         location.href = Checkout.failureUrl;
-    },d
+    },
 
     _disableEnableAll: function (element, isDisabled) {
         var descendants = element.find('*');
