@@ -8,6 +8,7 @@
     <div class="product-filter product-spec-filter">
         <div class="filter-title">
             <strong>@T("Filtering.SpecificationFilter")</strong>
+            <button class="filterBtn">Show filter</button>
         </div>
         <div class="filter-content">
             @if (Model.NotFilteredItems.Count > 0)
@@ -16,7 +17,7 @@
                     @foreach (var group in notFilteredItemsGroups)
                     {
                         var groupList = group.ToList();
-                        
+
                         <ul class="group product-spec-group @(groupList.Any(x => !string.IsNullOrEmpty(x.SpecificationAttributeOptionColorRgb)) ? "product-spec-color" : null )">
                             <li class="title">
                                 <strong>@groupList[0].SpecificationAttributeName</strong>

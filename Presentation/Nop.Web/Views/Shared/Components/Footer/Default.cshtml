@@ -108,12 +108,12 @@
                 </div>
                 @await Component.InvokeAsync("SocialButtons")
             </div>
-            @await Component.InvokeAsync("NewsletterBox")
+            @*@await Component.InvokeAsync("NewsletterBox")*@
         </div>
     </div>
     <div class="footer-lower">
         <div class="footer-info">
-            <span class="footer-disclaimer">@T("Content.CopyrightNotice", DateTime.Now.Year, Model.StoreName)</span>
+            @*<span class="footer-disclaimer">@T("Content.CopyrightNotice", DateTime.Now.Year, Model.StoreName)</span>*@
             @if (Model.DisplayTaxShippingInfoFooter)
             {
                 var inclTax = workContext.TaxDisplayType == TaxDisplayType.IncludingTax;
@@ -127,7 +127,7 @@
             <div class="footer-powered-by">
                 @*Would you like to remove the "Powered by nopCommerce" link in the bottom of the footer?
                     Please find more info at https://www.nopcommerce.com/nopcommerce-copyright-removal-key*@
-                Powered by <a href="https://www.nopcommerce.com/">nopCommerce</a>
+                Powered by <a href="https://livewholestore.com">livewholestore</a>
             </div>
         }
         @await Component.InvokeAsync("StoreThemeSelector")
@@ -162,5 +162,78 @@
                 $(this).siblings('.listbox').slideToggle('slow');
             }
         });
+
+
+        $(".filterBtn").click(function () {
+            $(".filter-content").toggle(450);
+        });
+
+
+        //var sticky_navigation_offset_top = $('.header-upper').offset().top;
+        //var sticky_navigation = function () {
+        //    var scroll_top = $(window).scrollTop();
+        //    if (scroll_top > sticky_navigation_offset_top) {
+        //        $('.header-upper').css({
+        //            'position': 'fixed',
+        //            'top': 0,
+        //            'z-index': '9999',
+        //            'width': '100%',
+        //            'background': '#fff',
+        //            'max-width':'980px'
+        //        });
+        //        $(".header-upper").addClass("FixedHead");
+              
+        //    } else {
+        //        $('.header-upper').css({
+        //            'position': 'relative',
+        //            'top': 0,
+        //            'z-index': '0',
+        //        });
+              
+        //        $(".header-upper").removeClass("FixedHead");
+        //    }
+        //};
+        //sticky_navigation();
+        //$(window).scroll(function () {
+        //    sticky_navigation();
+        //});
+        //$('a[href="#"]').click(function (event) {
+        //    event.preventDefault();
+        //});
+
+        //var sticky_navigation_offset_top2 = $('.header-menu').offset().top;
+        //var sticky_navigation2 = function () {
+        //    var scroll_top2 = $(window).scrollTop();
+        //    if (scroll_top2 > sticky_navigation_offset_top2) {
+        //        $('.header-menu').css({
+        //            'position': 'fixed',
+        //            'top': '46px',
+        //            'z-index': '9999',
+        //            'width': '980px',
+        //            'background': '#fff',
+        //            'max-width':'980px',
+        //            'border-bottom:':'1px solid #ddd'
+        //        });
+        //        //$('.header-menu').animate({
+        //        //    top: "+46px",
+        //        //});
+        //        $(".header-menu").addClass("FixedHead");
+        //    } else {
+        //        $('.header-menu').css({
+        //            'position': 'relative',
+        //            'top': 0,
+        //            'z-index': '0',
+        //            'border-bottom:': 'none'
+        //        });
+        //        $(".header-menu").removeClass("FixedHead");
+        //    }
+        //};
+        //sticky_navigation2();
+        //$(window).scroll(function () {
+        //    sticky_navigation2();
+        //});
+        //$('a[href="#"]').click(function (event) {
+        //    event.preventDefault();
+        //});
     });
 </script>

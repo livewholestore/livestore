@@ -1,5 +1,5 @@
 ﻿@model TopMenuModel
-<ul class="top-menu notmobile">
+@*<ul class="top-menu notmobile">
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore })
     @if (Model.DisplayHomepageMenuItem)
     {
@@ -48,61 +48,93 @@
         <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
     }
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter })
-</ul>
+</ul>*@
 @{
     var rootCategoriesResponsive = Model.Categories.ToList();
     //name it "Categories" if we have only categories. Otherwise, "Menu"
     var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
-    <div class="menu-toggle">@responsiveMenuTitle</div>
-    <ul class="top-menu mobile">
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuBefore })
-        @if (Model.DisplayHomepageMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
-        }
-        @if (!Model.UseAjaxMenu)
-        {
-            @foreach (var category in rootCategoriesResponsive)
-            {
-                var categoryLineModel = new TopMenuModel.CategoryLineModel
-                {
-                    Category = category,
-                    ResponsiveMobileMenu = true
-                };
-                @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
-            }
+    <!--<div class="menu-toggle">-->@*@responsiveMenuTitle*@<!--</div>-->
 
-        }
-        @foreach (var topic in Model.Topics)
-        {
-            <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
-        }
-        @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
-        }
-        @if (Model.DisplayProductSearchMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
-        }
-        @if (Model.DisplayCustomerInfoMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
-        }
-        @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
-        }
-        @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
-        }
-        @if (Model.DisplayContactUsMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuAfter })
-    </ul>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                @if (Model.DisplayHomepageMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
+                }
+            </div>
+
+
+            @if (!Model.UseAjaxMenu)
+            {
+                @foreach (var category in rootCategoriesResponsive)
+                {
+                    var categoryLineModel = new TopMenuModel.CategoryLineModel
+                    {
+                        Category = category,
+                        ResponsiveMobileMenu = true
+                    };
+                    @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                }
+            }
+          
+            <div class="swiper-slide">
+                @if (Model.DisplayContactUsMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                }
+            </div>
+        </div>
+        </div>
+    @*<ul class="top-menu mobile">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuBefore })
+            @if (Model.DisplayHomepageMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
+            }
+            @if (!Model.UseAjaxMenu)
+            {
+                @foreach (var category in rootCategoriesResponsive)
+                {
+                    var categoryLineModel = new TopMenuModel.CategoryLineModel
+                    {
+                        Category = category,
+                        ResponsiveMobileMenu = true
+                    };
+                    @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                }
+
+            }
+            @foreach (var topic in Model.Topics)
+            {
+                <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+            }
+            @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+            }
+            @if (Model.DisplayProductSearchMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+            }
+            @if (Model.DisplayCustomerInfoMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+            }
+            @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+            }
+            @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+            }
+            @if (Model.DisplayContactUsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuAfter })
+        </ul>*@
 
     @if (Model.UseAjaxMenu)
     {
@@ -137,3 +169,39 @@
     }
 
 }
+
+
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        centeredSlides: false,
+
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+            },
+        }
+    });
+</script>

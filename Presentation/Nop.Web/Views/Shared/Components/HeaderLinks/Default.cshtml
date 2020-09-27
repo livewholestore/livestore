@@ -31,7 +31,7 @@
         {
             <li>
                 <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
-                    <span class="wishlist-label">@T("Wishlist")</span>
+                    <img src="~/../Themes/DefaultClean/Content/images/wishlist.png" class="wishlistIcon"/>
                     <span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>
                 </a>
             </li>
@@ -40,7 +40,7 @@
         {
             <li id="topcartlink">
                 <a href="@Url.RouteUrl("ShoppingCart")" class="ico-cart">
-                    <span class="cart-label">@T("ShoppingCart")</span>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span class="cart-qty">@T("ShoppingCart.HeaderQuantity", Model.ShoppingCartItems)</span>
                 </a>
             </li>
