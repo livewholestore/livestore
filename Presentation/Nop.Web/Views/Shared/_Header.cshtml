@@ -5,16 +5,15 @@
             <div class="LanguageSelector">
                 @await Component.InvokeAsync("LanguageSelector")
             </div>
+            <div class="ContactUsPhone">
+                <p><i class="fa fa-phone" aria-hidden="true"></p>
+                <p>+96566415449</p>
+            </div>
             <div class="follow-us">
                 <div class="social">
                     @await Component.InvokeAsync("SocialButtons")
                 </div>
             </div>
-            <div class="ContactUsPhone">
-                <p><i class="fa fa-phone" aria-hidden="true"></p>
-                <p>+96566415449</p>
-            </div>
-            <div style="clear:both"></div>
             @*@await Component.InvokeAsync("TaxTypeSelector")
         @await Component.InvokeAsync("CurrencySelector")
         @await Component.InvokeAsync("LanguageSelector")
@@ -24,7 +23,8 @@
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMiddle })
     <div class="header-lower">
         <div class="header-logo">
-            @await Component.InvokeAsync("Logo")
+            @*@await Component.InvokeAsync("Logo")*@
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/s1N7mrx/Whats-App-Image-2020-09-20-at-3-56-47-AM.jpg" alt="Whats-App-Image-2020-09-20-at-3-56-47-AM" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
         </div>
         <div class="search-box store-search-box">
             @await Component.InvokeAsync("SearchBox")

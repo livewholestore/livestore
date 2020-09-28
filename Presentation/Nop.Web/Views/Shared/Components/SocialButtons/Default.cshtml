@@ -3,15 +3,16 @@
 
     <li class="instagramIcon">
         <a href="https://www.instagram.com/livestore33" target="_blank">
-            <img src="../Themes/DefaultClean/Content/images/instagram.png" class="instagramIconImage" alt="" title=""/> 
-         </a>
+            @*<img src="../Themes/DefaultClean/Content/images/instagram.png" class="instagramIconImage" alt="" title=""/>*@
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
     </li>
 
     @if (!string.IsNullOrEmpty(Model.FacebookLink))
     {
         <li class="facebook">
             <a href="@Model.FacebookLink" target="_blank">
-                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
         </li>
     }
@@ -19,7 +20,7 @@
     {
         <li class="twitter">
             <a href="@Model.TwitterLink" target="_blank">
-                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
         </li>
     }
@@ -31,7 +32,7 @@
     {
         <li class="youtube">
             <a href="@Model.YoutubeLink" target="_blank">
-                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                <i class="fa fa-youtube" aria-hidden="true"></i>
             </a>
         </li>
     }

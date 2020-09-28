@@ -3,21 +3,6 @@
 
 <div class="header-links">
     <ul>
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksBefore })
-        @if (Model.IsAuthenticated)
-        {
-            <li><a href="@Url.RouteUrl("CustomerInfo")" class="ico-account">@T("Account.MyAccount")@*@Model.CustomerName*@</a></li>
-            <li><a href="@Url.RouteUrl("Logout")" class="ico-logout">@T("Account.Logout")</a></li>
-        }
-        else
-        {
-            var returnUrl = Context.Request.Query.TryGetValue("returnUrl", out var url) && !StringValues.IsNullOrEmpty(url) 
-                ? url.ToString()
-                : webHelper.GetRawUrl(Context.Request);
-
-            <li><a href="@Url.RouteUrl("Register", new { returnUrl })" class="ico-register">@T("Account.Register")</a></li>
-            <li><a href="@Url.RouteUrl("Login", new { returnUrl })" class="ico-login">@T("Account.Login")</a></li>
-        }
         @if (Model.AllowPrivateMessages)
         {
             <li>
@@ -31,8 +16,9 @@
         {
             <li>
                 <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
-                    <img src="~/../Themes/DefaultClean/Content/images/wishlist.png" class="wishlistIcon"/>
-                    <span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>
+                    @*<img src="~/../Themes/DefaultClean/Content/images/wishlist.png" class="wishlistIcon" />*@
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    @*<span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>*@
                 </a>
             </li>
         }
@@ -41,9 +27,24 @@
             <li id="topcartlink">
                 <a href="@Url.RouteUrl("ShoppingCart")" class="ico-cart">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="cart-qty">@T("ShoppingCart.HeaderQuantity", Model.ShoppingCartItems)</span>
+                    @*<span class="cart-qty">@T("ShoppingCart.HeaderQuantity", Model.ShoppingCartItems)</span>*@
                 </a>
             </li>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksBefore })
+        @if (Model.IsAuthenticated)
+        {
+            <li><a href="@Url.RouteUrl("CustomerInfo")" class="ico-account"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+            <li><a href="@Url.RouteUrl("Logout")" class="ico-logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+        }
+        else
+        {
+            var returnUrl = Context.Request.Query.TryGetValue("returnUrl", out var url) && !StringValues.IsNullOrEmpty(url)
+                ? url.ToString()
+                : webHelper.GetRawUrl(Context.Request);
+
+            @*<li><a href="@Url.RouteUrl("Register", new { returnUrl })" class="ico-register">@T("Account.Register")</a></li>*@
+            <li class="AccountLogin"><a href="@Url.RouteUrl("Login", new { returnUrl })" class="ico-login">@T("Account.Login")</a></li>
         }
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksAfter })
     </ul>
