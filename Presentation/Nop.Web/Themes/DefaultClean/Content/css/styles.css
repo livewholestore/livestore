@@ -747,7 +747,7 @@ label, label + * {
 .header {
 	position: relative;
 	z-index: 10;
-	width: 95%;
+	width: 100%;
 	margin: auto;
 	text-align: center;
 }
@@ -927,7 +927,7 @@ i.fa.fa-sign-out {
 }
 .search-box input.search-box-text {
 	float: left;
-	width: 200px;
+	width: calc(100% - 88px);
 	height: 36px;
 	margin: 0 -1px 0 0;
 }
@@ -5638,7 +5638,7 @@ pre {
 	z-index: 1;
 	width: 90%;
 	max-width: 600px;
-	margin: 0 auto 40px;
+	margin:20px auto 40px
 }
 .menu-toggle {
 	background: #4ab2f1 url('../images/menu-icon.png') right center no-repeat;
@@ -7509,19 +7509,27 @@ ul.networks{margin-top:7px;display: -ms-flexbox;display: flex;-ms-flex-wrap: wra
 .headermenuFix{margin-top: 80px;}
 
 .home-page .item-box .picture{overflow:visible}
+.footer-block.follow-us li a i{color: #777;}
+.menuiconsDisplay{display:none}
 
 @media all and (max-width: 768px) {
 	.header-selectors-wrapper{width: 100%;}
-	.header-selectors-wrapper .follow-us{width: 50%;margin:0;}
-	.header-selectors-wrapper .ContactUsPhone{width: 50%;}
-	.header-links-wrapper{width: 100%;clear: both;float: none;}
-	.search-box.store-search-box {margin: auto;display: block;width: 288px;float: none}
+	.header-upper{padding:0; display:none;}
+	.header-selectors-wrapper .LanguageSelector {width: 50%;margin:0; padding:0 10px}
+	.header-selectors-wrapper .ContactUsPhone{width: 50%;padding:0 10px}
+	.header-selectors-wrapper .follow-us{width: 100%;margin:0;    padding: 0 20px;}
+	.header-links-wrapper{width: 100%; display: flex;justify-content: center;padding:10px 0 0px 0}
+	.header-logo {    width: 35%;height: 54px;}
+	.header-links-wrapper{display:none;width: 100%;margin: auto;border-top: 1px solid #949393;background: #E8EBEE;padding: 5px;margin-top: 9px;}
+	.header-links {margin: auto;}
+	.search-box.store-search-box {display:none;    width: 100%;    border-top: 1px solid #949393;    background: #E8EBEE;padding: 10px;height: auto;}
 	i.fa.fa-phone{margin-top:0;}
+	.menuiconsDisplay{display:block;display: flex;justify-content: center;align-items: center;}
+	.menuiconsDisplay i{color:#4ab2f1;display:block;font-size: 30px;margin:0 5%}
 	#topcartlink{display: block;width: auto;max-width: initial;margin: 0;}
-	.header-links ul{display:table}
+	.header-links ul{margin-top:0}
 	.header-links li{display:block;float:left}
 	.product-grid .item-box {width:100%;}
 	.product-grid .item-box .picture {float: left;width: 130px;}
 	.product-grid .item-box .picture + .details {margin: 10px 0 0 10px;width: calc(100% - 140px);float: left;}
-	.header-lower {padding: 160px 0 20px 0;}
 }

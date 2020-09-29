@@ -21,18 +21,23 @@
         </div>
     </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMiddle })
-    <div class="header-lower">
-        <div class="header-logo">
-            @*@await Component.InvokeAsync("Logo")*@
-            <a href="https://imgbb.com/"><img src="https://i.ibb.co/s1N7mrx/Whats-App-Image-2020-09-20-at-3-56-47-AM.jpg" alt="Whats-App-Image-2020-09-20-at-3-56-47-AM" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
-        </div>
-        <div class="search-box store-search-box">
-            @await Component.InvokeAsync("SearchBox")
-        </div>
-        <div class="header-links-wrapper">
-            @await Component.InvokeAsync("HeaderLinks")
-            @await Component.InvokeAsync("FlyoutShoppingCart")
-        </div>
+<div class="header-lower">
+    <div class="header-logo">
+        @*@await Component.InvokeAsync("Logo")*@
+        <a href="https://imgbb.com/"><img src="https://i.ibb.co/s1N7mrx/Whats-App-Image-2020-09-20-at-3-56-47-AM.jpg" alt="Whats-App-Image-2020-09-20-at-3-56-47-AM" border="0"></a>
     </div>
+    <div class="menuiconsDisplay">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+    <div class="search-box store-search-box">
+        @await Component.InvokeAsync("SearchBox")
+    </div>
+    <div class="header-links-wrapper">
+        @await Component.InvokeAsync("HeaderLinks")
+        @await Component.InvokeAsync("FlyoutShoppingCart")
+    </div>
+</div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderAfter })
 </div>

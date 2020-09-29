@@ -1,5 +1,5 @@
 ﻿@model TopMenuModel
-@*<ul class="top-menu notmobile">
+<ul class="top-menu notmobile">
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore })
     @if (Model.DisplayHomepageMenuItem)
     {
@@ -48,15 +48,15 @@
         <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
     }
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter })
-</ul>*@
+</ul>
 @{
     var rootCategoriesResponsive = Model.Categories.ToList();
     //name it "Categories" if we have only categories. Otherwise, "Menu"
     var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
-    <!--<div class="menu-toggle">-->@*@responsiveMenuTitle*@<!--</div>-->
+    <div class="menu-toggle">@responsiveMenuTitle</div>
 
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
+    <!--<div class="swiper-container">
+        <div class="swiper-wrapper">-->
             @*<div class="swiper-slide">
                 @if (Model.DisplayHomepageMenuItem)
                 {
@@ -65,7 +65,7 @@
             </div>*@
 
 
-            @if (!Model.UseAjaxMenu)
+            <!--@if (!Model.UseAjaxMenu)
             {
                 @foreach (var category in rootCategoriesResponsive)
                 {
@@ -85,8 +85,8 @@
                 }
             </div>
         </div>
-        </div>
-    @*<ul class="top-menu mobile">
+        </div>-->
+    <ul class="top-menu mobile">
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuBefore })
             @if (Model.DisplayHomepageMenuItem)
             {
@@ -134,7 +134,7 @@
                 <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
             }
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuAfter })
-        </ul>*@
+        </ul>
 
     @if (Model.UseAjaxMenu)
     {
@@ -170,38 +170,3 @@
 
 }
 
-
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        spaceBetween: 10,
-        slidesPerView: 3,
-        centeredSlides: false,
-
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 6,
-                spaceBetween: 20,
-            },
-        }
-    });
-</script>

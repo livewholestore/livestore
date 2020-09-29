@@ -1,14 +1,13 @@
 ﻿@model TopMenuModel.CategoryLineModel
-    <div class="swiper-slide">
         <li>
             <a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">
                 @Model.Category.Name
-            @*@if (Model.Category.NumberOfProducts.HasValue)
+            @if (Model.Category.NumberOfProducts.HasValue)
             {
                 <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
-            }*@
+            }
             </a>
-        @*@{
+        @{
             //subcategories
             var subCategories = Model.ResponsiveMobileMenu ?
                 //responsive (all categories)
@@ -37,6 +36,5 @@
                     }
                 </ul>
             }
-        }*@
+        }
     </li>
-</div>
