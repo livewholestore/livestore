@@ -903,7 +903,10 @@ i.fa.fa-sign-out {
 	text-align: center;
 	width: 155px;
 	height: 70px;
-	overflow:hidden
+	overflow:hidden;
+	padding: 5px;
+    display: flex;
+    align-items: center;
 }
 .header-logo a {
 	display: inline-block;
@@ -7511,7 +7514,7 @@ ul.networks{margin-top:7px;display: -ms-flexbox;display: flex;-ms-flex-wrap: wra
 .home-page .item-box .picture{overflow:visible}
 .footer-block.follow-us li a i{color: #777;}
 .menuiconsDisplay{display:none}
-
+.BrandsBlock .item-box .title{height: 82px;}
 @media all and (max-width: 768px) {
 	.header-selectors-wrapper{width: 100%;}
 	.header-upper{padding:0; display:none;}
@@ -7532,4 +7535,7 @@ ul.networks{margin-top:7px;display: -ms-flexbox;display: flex;-ms-flex-wrap: wra
 	.product-grid .item-box {width:100%;}
 	.product-grid .item-box .picture {float: left;width: 130px;}
 	.product-grid .item-box .picture + .details {margin: 10px 0 0 10px;width: calc(100% - 140px);float: left;}
+	.recentlyViewedBox:nth-child(1) {width: 100%;}
+	.recentlyViewedBox {width: calc(50% - 1.5%);}
+	.home-page .item-box .picture a{height: auto;}
 }
