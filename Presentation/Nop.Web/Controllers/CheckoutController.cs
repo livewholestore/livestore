@@ -1816,6 +1816,7 @@ namespace Nop.Web.Controllers
                     paymentData.Version = HesabeConstants.VERSION;
                     paymentData.Amount = float.Parse(order.OrderTotal.ToString());
                     paymentData.PaymentType = 2;
+                    paymentData.OrderReferenceNumber = order.Id.ToString();
                     paymentData.variable1 = _storeContext.CurrentStore.Id;
                     paymentData.variable2 = _workContext.CurrentCustomer.Id;
                     // Initialize the HesabeCrypt encryption/decryption library using the KEY and IV from the configuration
