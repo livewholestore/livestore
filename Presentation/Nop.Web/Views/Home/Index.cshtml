@@ -35,7 +35,7 @@
 
 
         <div class="item-grid">
-            @if (ViewBag.NewArrival.Count > 0)
+            @if (ViewBag.NewArrival != null && ViewBag.NewArrival.Count > 0)
             {
                 <div class="product-grid">
                     <div class="item-grid">
@@ -151,7 +151,7 @@
             }
         </div>
 
-        @if (ViewBag.manufacturers.Count > 0)
+        @if (ViewBag.manufacturers != null && ViewBag.manufacturers.Count > 0)
         {
             <div class="BrandsBlock">
                 <div class="title"><strong>Brands</strong></div>
@@ -187,7 +187,7 @@
             </div>
         </div>
 
-        @if (ViewBag.recentlyViewed.Count > 0)
+        @if (ViewBag.recentlyViewed != null && ViewBag.recentlyViewed.Count > 0)
         {
             <div class="homerecentlyViewed">
                 <div class="leftTitle"><strong>Recently viewed</strong></div>

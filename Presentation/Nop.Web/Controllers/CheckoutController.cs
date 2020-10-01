@@ -1815,7 +1815,7 @@ namespace Nop.Web.Controllers
                     paymentData.ResponseUrl = HesabeConstants.RESPONSE_URL;
                     paymentData.Version = HesabeConstants.VERSION;
                     paymentData.Amount = float.Parse(order.OrderTotal.ToString());
-                    paymentData.PaymentType = 2;
+                    paymentData.PaymentType = 1;
                     paymentData.OrderReferenceNumber = order.Id.ToString();
                     paymentData.variable1 = _storeContext.CurrentStore.Id;
                     paymentData.variable2 = _workContext.CurrentCustomer.Id;
