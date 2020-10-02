@@ -901,10 +901,10 @@ i.fa.fa-sign-out {
 .header-logo {
 	text-align: center;
 	width: 155px;
-	height: 70px;
-	overflow:hidden;
-    display: flex;
-    align-items: center;
+	height: 55px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
 }
 .header-logo a {
 	display: inline-block;
@@ -7317,9 +7317,6 @@ pre {
 /*** HEADER ***/
 
 
-.header {
-	width: 1200px;
-}
 
 
 /*** NAVIGATION ***/
