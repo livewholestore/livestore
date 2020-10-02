@@ -16,13 +16,11 @@
             };
             @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
         }
-
-
     }
-    @foreach (var topic in Model.Topics)
+    @*@foreach (var topic in Model.Topics)
     {
         <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
-    }
+    }*@
     @*@if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
     {
         <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>

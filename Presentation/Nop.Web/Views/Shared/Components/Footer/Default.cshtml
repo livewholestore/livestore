@@ -191,22 +191,16 @@
                     'top': 0,
                     'z-index': '9999',
                     'width': '100%',
-                    'padding': '10px 20px',
-                    'max-width':'980px'
                 });
-                $(".header-lower").addClass("FixedHead");
-                $(".headerMenuBlock").addClass("headermenuFix");
-              
+                $(".header-lower").addClass("FixedHead");              
             } else {
                 $('.header-lower').css({
                     'position': 'relative',
                     'top': 0,
                     'z-index': '0',
-                    'padding': '0px 20px',
                 });
               
                 $(".header-lower").removeClass("FixedHead");
-                $(".headerMenuBlock").removeClass("headermenuFix");
             }
         };
         sticky_navigation();
