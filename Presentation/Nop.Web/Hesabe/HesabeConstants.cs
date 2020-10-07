@@ -15,8 +15,8 @@
         public const string MERCHANT_CODE = "27320920";
 
         // This URL are defined by you to get the response from Payment Gateway
-        public const string RESPONSE_URL = "https://livewholestore.com/checkout/OpcCompleteRedirectionPayment?paymentStatus=true";
-        public const string FAILURE_URL = "https://livewholestore.com/checkout/OpcCompleteRedirectionPayment?paymentStatus=false";
+        public const string RESPONSE_URL = "https://www.zadaak.com/checkout/OpcCompleteRedirectionPayment?paymentStatus=true";
+        public const string FAILURE_URL = "https://www.zadaak.com/checkout/OpcCompleteRedirectionPayment?paymentStatus=false";
     }
 
     /// <summary>

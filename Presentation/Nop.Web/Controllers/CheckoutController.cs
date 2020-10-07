@@ -1643,12 +1643,12 @@ namespace Nop.Web.Controllers
             catch (Exception exc)
             {
                 _logger.Warning(exc.Message, exc, _workContext.CurrentCustomer);
-                return Json(new { error = 1, message = exc.Message  });
+                return Json(new { error = 1, message = exc.Message });
             }
         }
 
         [IgnoreAntiforgeryToken]
-        public virtual IActionResult OpcConfirmOrder(string data = "", bool paymentStatus = false)
+        public virtual IActionResult OpcConfirmOrder(string data = "", bool paymentStatus = false, int CreditType = 1)
         {
             try
             {
@@ -1713,7 +1713,7 @@ namespace Nop.Web.Controllers
                         //redirect
                         return Json(new
                         {
-                            redirect = $"{_webHelper.GetStoreLocation()}checkout/OpcCompleteRedirectionPayment"
+                            redirect = $"{_webHelper.GetStoreLocation()}checkout/OpcCompleteRedirectionPayment?CreditType=" + CreditType
                         });
                     }
                     //success
@@ -1742,7 +1742,7 @@ namespace Nop.Web.Controllers
             }
         }
 
-        public virtual async System.Threading.Tasks.Task<IActionResult> OpcCompleteRedirectionPaymentAsync(string data = "", bool paymentStatus = false)
+        public virtual async System.Threading.Tasks.Task<IActionResult> OpcCompleteRedirectionPaymentAsync(string data = "", bool paymentStatus = false, int CreditType = 1)
         {
             try
             {
@@ -1766,7 +1766,7 @@ namespace Nop.Web.Controllers
                 if (paymentResponse != null)
                 {
                     currentCustomer = _customerService.GetCustomerById(paymentResponse.Response.variable2);
-                    currentStore= _storeService.GetStoreById(paymentResponse.Response.variable1);
+                    currentStore = _storeService.GetStoreById(paymentResponse.Response.variable1);
                 }
                 //validation
                 if (!_orderSettings.OnePageCheckoutEnabled)
@@ -1815,7 +1815,7 @@ namespace Nop.Web.Controllers
                     paymentData.ResponseUrl = HesabeConstants.RESPONSE_URL;
                     paymentData.Version = HesabeConstants.VERSION;
                     paymentData.Amount = float.Parse(order.OrderTotal.ToString());
-                    paymentData.PaymentType = 1;
+                    paymentData.PaymentType = CreditType;
                     paymentData.OrderReferenceNumber = order.Id.ToString();
                     paymentData.variable1 = _storeContext.CurrentStore.Id;
                     paymentData.variable2 = _workContext.CurrentCustomer.Id;
@@ -1851,6 +1851,7 @@ namespace Nop.Web.Controllers
                     {
                         _orderProcessingService.CancelOrder(order, true);
                         status = 0;
+                        return RedirectToRoute("Homepage");
                     }
                 }
 

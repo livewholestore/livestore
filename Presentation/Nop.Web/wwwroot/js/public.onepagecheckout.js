@@ -474,10 +474,11 @@ var ConfirmOrder = {
             }
         }
         if (termOfServiceOk) {
+            var creditType = $("#CreditPaymentType").val();
             Checkout.setLoadWaiting('confirm-order');
             $.ajax({
                 cache: false,
-                url: this.saveUrl,
+                url: this.saveUrl + '?CreditType=' + creditType,
                 type: "POST",
                 success: this.nextStep,
                 complete: this.resetLoadWaiting,

@@ -50,7 +50,7 @@ namespace Nop.Web.Controllers
                 return Content("");
 
             var preparePictureModel = productThumbPictureSize.HasValue;
-            var products = _recentlyViewedProductsService.GetRecentlyViewedProducts(_catalogSettings.RecentlyViewedProductsNumber);
+            var products = _recentlyViewedProductsService.GetRecentlyViewedProducts(5);
 
             //ACL and store mapping
             // products = products.Where(p => _aclService.Authorize(p) && _storeMappingService.Authorize(p)).ToList();
