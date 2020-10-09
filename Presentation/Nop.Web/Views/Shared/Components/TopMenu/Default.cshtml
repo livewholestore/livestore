@@ -49,54 +49,71 @@
 </ul>
 
 <!--Menu Duplicate-->
-<ul class="top-menu notmobile">
-    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore })
-    @*@if (Model.DisplayHomepageMenuItem)
-        {
-            <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
-        }*@
-    @if (!Model.UseAjaxMenu)
-    {
-        var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
-        @foreach (var category in rootCategories)
-        {
-            var categoryLineModel = new TopMenuModel.CategoryLineModel
+<div class="MenuNewVer" hidden>
+    <div class="MenuNewVerCon">
+    <ul class="top-menu ">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore })
+        @*@if (Model.DisplayHomepageMenuItem)
             {
-                Category = category
-            };
-            @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
+            }*@
+        @if (!Model.UseAjaxMenu)
+        {
+            var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
+            @foreach (var category in rootCategories)
+            {
+                var categoryLineModel = new TopMenuModel.CategoryLineModel
+                {
+                    Category = category
+                };
+                @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+            }
         }
-    }
-    @*@foreach (var topic in Model.Topics)
+        @*@foreach (var topic in Model.Topics)
+            {
+                <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+            }*@
+        @*@if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+            }*@
+        @if (Model.DisplayProductSearchMenuItem)
         {
-            <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
-        }*@
-    @*@if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+            <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+        }
+        @*@if (Model.DisplayCustomerInfoMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+            }*@
+        @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
         {
-            <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
-        }*@
-    @if (Model.DisplayProductSearchMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
-    }
-    @*@if (Model.DisplayCustomerInfoMenuItem)
+            <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+        }
+        @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
         {
-            <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
-        }*@
-    @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
-    }
-    @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
-    }
-    @if (Model.DisplayContactUsMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
-    }
-    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter })
-</ul>
+            <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+        }
+        @if (Model.DisplayContactUsMenuItem)
+        {
+            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter })
+    </ul>
+    <div class="MenuNewVerRight">
+        <div class="CallUsInmenU">
+            <div class="title" style="text-align:left;color:#fff;"><strong>Call us</strong></div>
+            <div class="ContactUsPhone"><i class="fa fa-phone" aria-hidden="true"></i><p>+96566415449</p><div class="clearfix"></div></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="FollowUsInmenU">
+            <div class="title" style="text-align:left;color:#fff;"><strong>Follow us</strong></div>
+            <div class="follow-us"><div class="social"><ul class="networks"><li class="instagramIcon"><a href="https://www.instagram.com/livestore33" target="_blank"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></li><li class="facebook"><a href="https://www.facebook.com/Live-Store-114898487015083" target="_blank"> <i class="fa fa-facebook" aria-hidden="true"></i> </a></li><li class="twitter"><a href="https://twitter.com/LiveStore5" target="_blank"> <i class="fa fa-twitter" aria-hidden="true"></i> </a></li><li class="youtube"><a href="https://www.youtube.com/channel/UCuQWQHGZu_zUO7Co2SQffsg?view_as=subscriber" target="_blank"> <i class="fa fa-youtube" aria-hidden="true"></i> </a></li></ul></div></div>
+        </div>
+    </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
 
 
 @{

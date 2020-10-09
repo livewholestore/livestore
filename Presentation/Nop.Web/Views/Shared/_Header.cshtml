@@ -24,6 +24,9 @@
     </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMiddle })
 <div class="header-lower">
+    @*<div class="MenuInMobileVer">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>*@
     <div class="header-logo">
         @await Component.InvokeAsync("Logo")
     </div>
