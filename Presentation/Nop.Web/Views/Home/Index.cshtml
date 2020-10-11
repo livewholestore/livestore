@@ -155,26 +155,32 @@
         @if (ViewBag.manufacturers != null && ViewBag.manufacturers.Count > 0)
         {
             <div class="BrandsBlock">
-                <div class="title"><strong>Brands</strong></div>
+                <div class="title"><strong>@T("brands.name")</strong></div>
 
                 <div>
                     <div class="category-grid home-page-category-grid">
                         <div class="item-grid">
-                            @foreach (var manufacturer in ViewBag.manufacturers)
-                            {
-                                <div class="item-box">
-                                    <div class="category-item">
-                                        <h2 class="title">
-                                            <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacturer.SeName })" title="@manufacturer.Name"> @manufacturer.Name </a>
-                                        </h2>
-                                        <div class="picture">
-                                            <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacturer.SeName })" title="@manufacturer.Name">
-                                                <img alt="@manufacturer.PictureModel.AlternateText" src="@manufacturer.PictureModel.ImageUrl" title="@manufacturer.PictureModel.Title">
-                                            </a>
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    @foreach (var manufacturer in ViewBag.manufacturers)
+                                    {
+                                    <div class="swiper-slide">
+                                        <div class="item-box">
+                                            <div class="category-item">
+                                                <h2 class="title">
+                                                    <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacturer.SeName })" title="@manufacturer.Name"> @manufacturer.Name </a>
+                                                </h2>
+                                                <div class="picture">
+                                                    <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacturer.SeName })" title="@manufacturer.Name">
+                                                        <img alt="@manufacturer.PictureModel.AlternateText" src="@manufacturer.PictureModel.ImageUrl" title="@manufacturer.PictureModel.Title">
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    }
                                 </div>
-                            }
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -183,50 +189,7 @@
         }
         @*homepagesubcategory*@
         <div class="homepagesubcategory">
-            <div class="leftTitle"><strong>Sub Category</strong></div>
-            <div class="homepagesubcategory">
-                <div class="recentlyViewedBox">
-                    <div class="picture">
-                        <a href="/wiss-toy" title="Show details for (jenga) Wiss toy">
-                            <img alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0000398_jenga-wiss-toy_650.jpeg" title="Show details for (jenga) Wiss toy">
-                        </a>
-                    </div>
-                    <h2 class="recVititle"><a href="/wiss-toy">(jenga) Wiss toy</a></h2>
-                </div>
-                <div class="recentlyViewedBox">
-                    <div class="picture">
-                        <a href="/wiss-toy" title="Show details for (jenga) Wiss toy">
-                            <img alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0000398_jenga-wiss-toy_650.jpeg" title="Show details for (jenga) Wiss toy">
-                        </a>
-                    </div>
-                    <h2 class="recVititle"><a href="/wiss-toy">(jenga) Wiss toy</a></h2>
-                </div>
-                <div class="recentlyViewedBox">
-                    <div class="picture">
-                        <a href="/wiss-toy" title="Show details for (jenga) Wiss toy">
-                            <img alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0000398_jenga-wiss-toy_650.jpeg" title="Show details for (jenga) Wiss toy">
-                        </a>
-                    </div>
-                    <h2 class="recVititle"><a href="/wiss-toy">(jenga) Wiss toy</a></h2>
-                </div>
-                <div class="recentlyViewedBox">
-                    <div class="picture">
-                        <a href="/wiss-toy" title="Show details for (jenga) Wiss toy">
-                            <img alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0000398_jenga-wiss-toy_650.jpeg" title="Show details for (jenga) Wiss toy">
-                        </a>
-                    </div>
-                    <h2 class="recVititle"><a href="/wiss-toy">(jenga) Wiss toy</a></h2>
-                </div>
-                <div class="recentlyViewedBox">
-                    <div class="picture">
-                        <a href="/wiss-toy" title="Show details for (jenga) Wiss toy">
-                            <img alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0000398_jenga-wiss-toy_650.jpeg" title="Show details for (jenga) Wiss toy">
-                        </a>
-                    </div>
-                    <h2 class="recVititle"><a href="/wiss-toy">(jenga) Wiss toy</a></h2>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+            <div class="recentlyViewedBox"><div class="picture"><a href="/skin-care" title="Show details for (jenga) Wiss toy"> <img alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0001841_skin-care_450.jpeg" title="Show details for (jenga) Wiss toy"> </a></div><h2 class="recVititle"><a href="/skin-care"> skin care </a></h2></div><div class="recentlyViewedBox"><div class="picture"><a href="/headsets" title="Show details for (jenga) Wiss toy"> <img style="margin-top:20px" alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0001855_headsets_450.png" title="Show details for (jenga) Wiss toy"> </a></div><h2 class="recVititle"><a href="/headsets"> headsets</a></h2></div><div class="recentlyViewedBox"><div class="picture"><a href="/hair-care" title="Show details for (jenga) Wiss toy"> <img style="margin-top:20px" alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0001840_hair-care_450.jpeg" title="Show details for (jenga) Wiss toy"> </a></div><h2 class="recVititle"><a href="/hair-care"> hair care</a></h2></div><div class="recentlyViewedBox"><div class="picture"><a href="/toys" title="Show details for (jenga) Wiss toy"> <img style="margin-top:20px" alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0001187_toys_450.jpeg" title="Show details for (jenga) Wiss toy"> </a></div><h2 class="recVititle"><a href="/toys">toys</a></h2></div><div class="recentlyViewedBox"><div class="picture"><a href="/accessories" title="Show details for (jenga) Wiss toy"> <img style="margin-top:20px" alt="Picture of (jenga) Wiss toy" src="https://zadaak.com/images/thumbs/0001842_accessories_450.jpeg" title="Show details for (jenga) Wiss toy"> </a></div><h2 class="recVititle"><a href="/accessories">Accessories</a></h2></div><div class="clearfix"></div>
         </div>
 
         @if (ViewBag.recentlyViewed != null && ViewBag.recentlyViewed.Count > 0)

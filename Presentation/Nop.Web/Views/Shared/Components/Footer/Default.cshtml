@@ -143,6 +143,8 @@
     </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.Footer })
 </div>
+
+<script src="~/../Themes/DefaultClean/Content/js/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <script asp-location="Footer">
     $(document).ready(function () {
@@ -161,23 +163,7 @@
 </script>
 <script asp-location="Footer">
     $(document).ready(function () {
-        //$('.backTop a').click(function () {
-        //    var el = $(this).attr('href');
-        //    var elWrapped = $(el);
-        //    scrollToDiv(elWrapped, 40);
-        //    return false;
-        //});
-        //function scrollToDiv(element, navheight) {
-        //    var offset = element.offset();
-        //    var offsetTop = offset.top;
-        //    var totalScroll = offsetTop - navheight;
-
-        //    $('body,html').animate({
-        //        scrollTop: totalScroll
-        //    }, 1000);
-        //}
-
-
+     
         //Click event to scroll to top
         $('.backTop').click(function () {
             $('html, body').animate({ scrollTop: 0 }, 800);
@@ -263,6 +249,41 @@
             $('.group.product-spec-group .item').slideUp()
             $(this).parent().children('.item').slideToggle();
         });
-       
+
+
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 15,
+            centeredSlides: false,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                640: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+                768: {
+                    slidesPerView: 5,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 30,
+                },
+            }
+        });
     });
 </script>
