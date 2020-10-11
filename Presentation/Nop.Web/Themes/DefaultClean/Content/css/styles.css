@@ -7500,8 +7500,8 @@ ul.networks{margin-top:7px;display: -ms-flexbox;display: flex;-ms-flex-wrap: wra
 .alert-success {color: #004085;background-color: #cce5ff;border-color: #b8daff;position: relative;padding: .75rem 1.25rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: .25rem;}
 .FixedHead .header-logo{height:auto}
 
-.BrandsBlock .item-box{width:calc(13% - 1%);margin-right:5%;padding-bottom: 10px;margin-bottom: 20px;}
-.BrandsBlock .item-box:nth-child(6){margin-right:0;}
+.BrandsBlock .item-box{width:100%;}
+/*.BrandsBlock .item-box:nth-child(6){margin-right:0;}*/
 .BrandsBlock .item-box .picture a{width:100%;height:auto;}
 .BrandsBlock .item-box .title{display:none}
 
@@ -7557,13 +7557,20 @@ ul.networks{margin-top:7px;display: -ms-flexbox;display: flex;-ms-flex-wrap: wra
 	#topcartlink{display: block;width: auto;max-width: initial;margin: 0;}
 	.header-links ul{margin-top:0}
 	.header-links li{display:block;float:left}
-	.product-grid .item-box {width:100%;}
-	.product-grid .item-box .picture {float: left;width: 130px;}
-	.product-grid .item-box .picture + .details {margin: 10px 0 0 10px;width: calc(100% - 140px);float: left;}
+	.product-grid .item-box {width:calc(50% - 2%);margin-right:2%}
+	.product-grid .item-box:nth-child(2n+0){margin-right:0}
+	/*.product-grid .item-box .picture {float: left;width: 130px;}
+	.product-grid .item-box .picture + .details {margin: 10px 0 0 10px;width: calc(100% - 140px);float: left;}*/
 	.recentlyViewedBox:nth-child(1) {width: 100%;}
-	.recentlyViewedBox {width: calc(50% - 1.5%);}
-	
+	.recentlyViewedBox {width: calc(50% - 2.5%);}
+	.recentlyViewedBox{margin-right: 4.5%;}
 	.header-logo a img{margin-top: 15px;}
 	.header-lower{padding: 10px 20px;}
 	.item-box{margin: 0 0 20px;}
-}
+	.homepagesubcategory{padding:0}
+	.item-box .product-title{    height: 60px;}
+	.item-box .product-box-add-to-cart-button {width: 100%;}
+	.item-box .add-to-compare-list-button, .item-box .add-to-wishlist-button {width: 50%;}
+	.home-page-category-grid .item-box .picture a {height:auto;}
+	.sub-category-grid .item-box .picture a {height:auto;}
+	}
