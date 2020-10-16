@@ -7630,7 +7630,7 @@ ul.networks{margin-top:7px;display: -ms-flexbox;display: flex;-ms-flex-wrap: wra
 	.header-logo {    width: 35%;height: 54px;}
 	.header-links-wrapper{display:none;width: 100%;margin: auto;border-top: 1px solid #949393;background: #E8EBEE;padding: 5px;margin-top: 9px;}
 	.header-links {margin: auto;}
-	.search-box.store-search-box {display:none;width: 100%;border-top: 1px solid #949393;padding:10px 0;height: auto;}
+	.search-box.store-search-box {display:none;width: 100%;border-top: 1px solid #949393;padding:10px 0;height: auto;margin-top: 4px;}
 	i.fa.fa-phone{margin-top:0;}
 	.menuiconsDisplay{display:block;display: flex;justify-content: center;align-items: center;}
 	.menuiconsDisplay i{color:#4ab2f1;display:block;font-size: 30px;margin:0 5%}
