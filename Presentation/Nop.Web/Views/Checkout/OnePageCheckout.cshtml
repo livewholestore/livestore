@@ -6,7 +6,7 @@
 
     //scripts
     Html.AddScriptParts(ResourceLocation.Footer, "~/js/public.accordion.js");
-    Html.AddScriptParts(ResourceLocation.Footer, "~/js/public.onepagecheckout.js?ver=1");
+    Html.AddScriptParts(ResourceLocation.Footer, "~/js/public.onepagecheckout.js?ver=2");
 
     var storeLocation = webHelper.GetStoreLocation();
 
@@ -20,9 +20,9 @@
     var billingAddressStepNumber = 1;
     var shippingAddressStepNumber = 2;
     var shippingMethodStepNumber = 3;
-    var paymentMethodStepNumber = 4;
+    var paymentMethodStepNumber = 3;
     var paymentInfoStepNumber = 5;
-    var confirmOrderStepNumber = 6;
+    var confirmOrderStepNumber = 4;
     if (!Model.ShippingRequired)
     {
         paymentMethodStepNumber = paymentMethodStepNumber - 2;
