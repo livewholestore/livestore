@@ -91,8 +91,13 @@ var Checkout = {
         }
 
         if (response.goto_section) {
-            Checkout.gotoSection(response.goto_section);
-            return true;
+            if (response.goto_section != "shipping_method" && response.goto_section != "payment_info") {
+                Checkout.gotoSection(response.goto_section);
+                return true;
+            } else {
+                return true;
+            }
+
         }
         if (response.redirect) {
             location.href = response.redirect;
@@ -238,7 +243,10 @@ var Shipping = {
     },
 
     resetLoadWaiting: function () {
-        Checkout.setLoadWaiting(false);
+        Checkout.setLoadWaiting('shipping');
+        Checkout.loadWaiting = false;
+        ShippingMethod.save();
+
     },
 
     nextStep: function (response) {
@@ -251,7 +259,7 @@ var Shipping = {
 
             return false;
         }
-
+        
         Checkout.setStepResponse(response);
     },
 
@@ -295,7 +303,7 @@ var ShippingMethod = {
         if (Checkout.loadWaiting !== false) return;
 
         if (this.validate()) {
-            Checkout.setLoadWaiting('shipping-method');
+            Checkout.setLoadWaiting('shipping');
 
             $.ajax({
                 cache: false,
@@ -310,6 +318,7 @@ var ShippingMethod = {
     },
 
     resetLoadWaiting: function () {
+        this.loadWaiting='shipping';
         Checkout.setLoadWaiting(false);
     },
 
@@ -384,7 +393,9 @@ var PaymentMethod = {
     },
 
     resetLoadWaiting: function () {
-        Checkout.setLoadWaiting(false);
+        Checkout.setLoadWaiting('payment-method');
+        Checkout.loadWaiting = false;
+        PaymentInfo.save();
     },
 
     nextStep: function (response) {
@@ -416,7 +427,7 @@ var PaymentInfo = {
     save: function () {
         if (Checkout.loadWaiting !== false) return;
 
-        Checkout.setLoadWaiting('payment-info');
+        Checkout.setLoadWaiting('payment-method');
         $.ajax({
             cache: false,
             url: this.saveUrl,
@@ -429,6 +440,7 @@ var PaymentInfo = {
     },
 
     resetLoadWaiting: function () {
+        this.loadWaiting = 'payment-method';
         Checkout.setLoadWaiting(false);
     },
 
